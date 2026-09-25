@@ -12,7 +12,7 @@ Tienda / catálogo de perfumes con pedidos. Stack: **Next.js 15 + TypeScript + T
   - Footer y rutas base
 - [x] **Etapa 2 — Home**: carrusel hero (2 diapositivas), banners Masculinas / Femeninas, franja de beneficios, botón de WhatsApp
 - [x] **Etapa 3 — Catálogo**: grilla de productos, filtros por categoría y marca, orden, búsqueda, "Comprar" suma al carrito (guardado en el navegador), "Los más vendidos" en el inicio
-- [ ] **Etapa 4 — Ficha de producto**: galería, precio, cantidad, "Agregar al carrito", acordeones con info
+- [x] **Etapa 4 — Ficha de producto**: imagen, precio, cantidad, "Agregar al carrito", consulta por WhatsApp, "Inspirado en…", desplegables (descripción, notas, para quién, uso, rendimiento, similares). Textos editables en `src/data/product-info.ts`
 - [ ] **Etapa 5 — Carrito y pedidos**: carrito persistente, formulario de datos, envío del pedido por WhatsApp
 - [ ] **Etapa 6 — Imágenes**: banners del hero y categorías, fotos de producto homogéneas
 - [ ] **Etapa 7 — FAQ, SEO y pulido**: preguntas frecuentes, metadatos, Open Graph, accesibilidad, responsive
