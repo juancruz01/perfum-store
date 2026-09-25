@@ -1,0 +1,11 @@
+{
+  "dolar": 1545,
+  "precioMaximo": 350000,
+  "redondeo": 100,
+  "margen": {
+    "arabe": 0,
+    "disenador": 0,
+    "nicho": 0
+  },
+  "envioGratisDesde": 150000
+}

@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* Paleta de marca */
+:root {
+  --verde: #0b3d2e;
+  --verde-oscuro: #072a20;
+  --oro: #e8b33b;
+  --oro-suave: #f3d58c;
+  --crema: #f6f2ea;
+  --bordo: #7b2d26;
+  --tinta: #1c1c1a;
+  --gris: #6b6a66;
+  --linea: #e4ddd0;
+}
+
+@theme inline {
+  --color-verde: var(--verde);
+  --color-verde-oscuro: var(--verde-oscuro);
+  --color-oro: var(--oro);
+  --color-oro-suave: var(--oro-suave);
+  --color-crema: var(--crema);
+  --color-bordo: var(--bordo);
+  --color-tinta: var(--tinta);
+  --color-gris: var(--gris);
+  --color-linea: var(--linea);
+  --font-sans: var(--font-montserrat);
+  --font-serif: var(--font-playfair);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fff;
+  color: var(--tinta);
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--oro);
+  color: var(--verde-oscuro);
+}
+
+.container-page {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: 24px;
+  }
+}
