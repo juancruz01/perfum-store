@@ -1,11 +1,11 @@
-import { site } from "@/config/site";
+"use client";
 
-export function whatsappLink(message?: string) {
-  const text = message ? `?text=${encodeURIComponent(message)}` : "";
-  return `https://wa.me/${site.whatsapp}${text}`;
-}
+import { usePathname } from "next/navigation";
+import { whatsappLink } from "@/lib/whatsapp";
 
 export function WhatsAppButton() {
+  // En el carrito se oculta para no confundirlo con "Enviar pedido por WhatsApp".
+  if (usePathname() === "/carrito") return null;
   return (
     <a
       href={whatsappLink("¡Hola! Quería hacer una consulta sobre un perfume.")}

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
 import { AddToCartButton } from "./AddToCartButton";
-import { whatsappLink } from "../WhatsAppButton";
+import { whatsappLink } from "@/lib/whatsapp";
 
 const MAX_QTY = 10;
 
