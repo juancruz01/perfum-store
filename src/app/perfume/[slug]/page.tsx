@@ -90,7 +90,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
 
       <div className="grid gap-8 pt-6 md:grid-cols-2 md:gap-12 md:pt-0 lg:gap-16">
         {/* Imagen */}
-        <div className="relative aspect-square overflow-hidden rounded-2xl bg-crema md:sticky md:top-40 md:self-start">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-crema ring-1 ring-linea/70 md:sticky md:top-40 md:self-start">
           <ProductImage product={product} priority sizes="(min-width: 768px) 50vw, 100vw" />
         </div>
 

@@ -17,15 +17,21 @@ export function ProductImage({
   className?: string;
 }) {
   if (product.image) {
+    // Las fotos ya vienen normalizadas y comprimidas (WebP 800x1000, ~25 KB):
+    // se sirven tal cual para no consumir el cupo de optimización de imágenes del hosting.
     return (
-      <Image
-        src={product.image}
-        alt={`${product.brand} ${product.name}`}
-        fill
-        sizes={sizes}
-        priority={priority}
-        className={`object-contain p-4 ${className}`}
-      />
+      <>
+        <div className="absolute inset-0 bg-white" />
+        <Image
+          src={product.image}
+          alt={`${product.brand} ${product.name}`}
+          fill
+          unoptimized
+          sizes={sizes}
+          priority={priority}
+          className={`object-contain ${className}`}
+        />
+      </>
     );
   }
 

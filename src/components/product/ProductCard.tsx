@@ -12,7 +12,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
 
   return (
     <article className="group flex flex-col">
-      <Link href={href} className="relative block aspect-[4/5] overflow-hidden rounded-lg bg-crema">
+      <Link href={href} className="relative block aspect-[4/5] overflow-hidden rounded-lg bg-crema ring-1 ring-linea/70">
         <ProductImage
           product={product}
           priority={priority}

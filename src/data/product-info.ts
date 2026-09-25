@@ -1277,14 +1277,14 @@ export const productInfo: Record<string, ProductInfo> = {
     l: "10–12 h",
     e: 4,
   },
-  "jo-milano-game-of-spades-royal-white-parfum-100ml": {
-    f: ["almizclada", "floral"],
-    d: "Royal White: limpio, almizclado y floral. Elegante y luminoso, ideal para el día.",
-    n: ["Cítricos, notas frescas", "Flores blancas", "Almizcle blanco, maderas"],
-    w: "Para quien prefiere un nicho limpio y sofisticado.",
+  "jo-milano-game-of-spades-ace-parfum-100ml": {
+    f: ["amaderada", "aromatica"],
+    d: "Ace, el as de la colección Game of Spades: amaderado, aromático y muy elegante, con la alta concentración de un Parfum.",
+    n: ["Bergamota, notas frescas", "Lavanda, especias", "Maderas, ámbar, almizcle"],
+    w: "Para quien busca un nicho versátil y distinguido.",
     s: ALL,
     o: ["Día", "Trabajo", "Eventos"],
-    l: "8–10 h",
+    l: "10–12 h",
     e: 3,
   },
   "mancera-instant-crush-eau-de-parfum-120ml": {

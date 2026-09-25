@@ -14,7 +14,7 @@ Tienda / catálogo de perfumes con pedidos. Stack: **Next.js 15 + TypeScript + T
 - [x] **Etapa 3 — Catálogo**: grilla de productos, filtros por categoría y marca, orden, búsqueda, "Comprar" suma al carrito (guardado en el navegador), "Los más vendidos" en el inicio
 - [x] **Etapa 4 — Ficha de producto**: imagen, precio, cantidad, "Agregar al carrito", consulta por WhatsApp, "Inspirado en…", desplegables (descripción, notas, para quién, uso, rendimiento, similares). Textos editables en `src/data/product-info.ts`
 - [x] **Etapa 5 — Carrito y pedidos**: carrito con cantidades y progreso de envío gratis, datos del cliente, envío a domicilio o retiro (Claypole / Solano), pago por transferencia, efectivo o Mercado Pago, pedido numerado enviado por WhatsApp
-- [ ] **Etapa 6 — Imágenes**: banners del hero y categorías, fotos de producto homogéneas
+- [x] **Etapa 6 — Imágenes**: fotos oficiales de los 128 perfumes (Fragrantica), normalizadas a WebP 800x1000 con fondo blanco y frasco centrado → `public/products/`
 - [ ] **Etapa 7 — FAQ, SEO y pulido**: preguntas frecuentes, metadatos, Open Graph, accesibilidad, responsive
 - [ ] **Etapa 8 — Publicación**: deploy en Vercel, dominio, link para Instagram
 
@@ -27,10 +27,20 @@ Tienda / catálogo de perfumes con pedidos. Stack: **Next.js 15 + TypeScript + T
 | `scripts/catalog-overrides.mjs` | Correcciones de nombres y género de cada perfume |
 | `data/catalogo-completo.json` | Todos los perfumes del proveedor (para elegir nuevos) |
 | `src/data/products.json` | Catálogo publicado (generado, no editar a mano) |
+| `scripts/image-ids.json` | Código de Fragrantica de la foto de cada perfume |
+| `public/products/<slug>.webp` | Foto de cada perfume (reemplazable por una propia, mismo nombre) |
 
 Después de cambiar cualquiera de esos archivos:
 
 ```bash
+npm run catalog
+```
+
+Para un perfume nuevo: agregalo a la selección, sumá su código de Fragrantica en `scripts/image-ids.json`
+(el número al final de la URL, ej. `.../Khamrah-75805.html` → 75805) y corré:
+
+```bash
+npm run images
 npm run catalog
 ```
 

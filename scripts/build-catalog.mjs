@@ -233,7 +233,9 @@ for (const [i, name] of SELECTION.entries()) {
   const p = byRaw.get(normalizeRaw(name));
   if (!p) { problems.push(`No encontrado: ${name}`); continue; }
   if (p.price > pricing.precioMaximo) { problems.push(`Supera el precio máximo ($${p.price}): ${name}`); continue; }
-  const product = { ...p, featured: i };
+  // Foto del frasco si existe en public/products (ver scripts/fetch-images.mjs)
+  const hasImage = fs.existsSync(path.join(root, "public/products", `${p.slug}.webp`));
+  const product = { ...p, image: hasImage ? `/products/${p.slug}.webp` : null, featured: i };
   delete product.raw;
   products.push(product);
 }
