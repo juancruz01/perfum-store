@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { site } from "@/config/site";
 import "./globals.css";
 
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

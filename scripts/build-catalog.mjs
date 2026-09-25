@@ -17,8 +17,16 @@ import { SELECTION } from "./catalog-selection.mjs";
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Z]:)/, "$1")), "..");
 const read = (f) => JSON.parse(fs.readFileSync(path.join(root, f), "utf8"));
 const pricing = read("src/config/pricing.json");
-const toArs = (usd, type) =>
-  Math.round((usd * pricing.dolar * (1 + (pricing.margen[type] ?? 0) / 100)) / pricing.redondeo) * pricing.redondeo;
+/**
+ * Precio de venta = (costo en pesos + costo de envío) + margen %, redondeado hacia arriba.
+ * Si el perfume tiene precio manual en pricing.json, se usa ese.
+ */
+function salePrice(slug, usd, type) {
+  if (pricing.preciosManuales[slug]) return pricing.preciosManuales[slug];
+  const cost = usd * pricing.dolar + (pricing.costoEnvio[type] ?? 0);
+  const price = cost * (1 + (pricing.margen[type] ?? 0) / 100);
+  return Math.ceil(price / pricing.redondeo) * pricing.redondeo;
+}
 
 function normalizeRaw(str) {
   let raw = str.toUpperCase().replace(/[“”"]/g, "").replace(/´|`|’/g, "'").replace(/\s+/g, " ").trim();
@@ -200,7 +208,7 @@ function add(item, brand, type, source) {
     size: parsed.size,
     isSet: parsed.isSet || brand === "Sets",
     priceUsd: item.usd,
-    price: toArs(item.usd, type),
+    price: salePrice(slug, item.usd, type),
     image: null,
     raw,
   });

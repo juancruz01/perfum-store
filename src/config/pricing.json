@@ -1,11 +1,23 @@
 {
   "dolar": 1545,
   "precioMaximo": 350000,
-  "redondeo": 100,
-  "margen": {
-    "arabe": 0,
+  "redondeo": 1000,
+  "costoEnvio": {
+    "arabe": 3250,
     "disenador": 0,
     "nicho": 0
+  },
+  "margen": {
+    "arabe": 30,
+    "disenador": 0,
+    "nicho": 0
+  },
+  "preciosManuales": {
+    "armaf-odyssey-mandarin-eau-de-parfum-100ml": 70000,
+    "armaf-club-de-nuit-woman-eau-de-parfum-100ml": 72000,
+    "lattafa-asad-elixir-100ml": 70000,
+    "armaf-club-de-nuit-milestone-105ml": 75000,
+    "al-haramain-amber-oud-gold-edition-120ml": 100000
   },
   "envioGratisDesde": 150000
 }

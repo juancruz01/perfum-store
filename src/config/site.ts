@@ -4,10 +4,8 @@ export const site = {
   name: "Perfum.store",
   description:
     "Perfumes árabes, de diseñador y nicho 100% originales. Envíos a todo el país y envío gratis superando $150.000.",
-  // TODO: completar con los datos reales del negocio
-  whatsapp: "", // formato internacional sin + ni espacios, ej: 5491112345678
-  instagram: "", // usuario sin @
-  email: "",
+  whatsapp: "5491159320255", // formato internacional sin + ni espacios (11 5932-0255)
+  instagram: "perfum.storesur", // usuario sin @
   freeShippingFrom: pricing.envioGratisDesde,
 };
 
