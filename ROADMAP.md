@@ -7,7 +7,7 @@ Tienda / catálogo de perfumes con pedidos. Stack: **Next.js 15 + TypeScript + T
 - [x] **Etapa 1 — Base del proyecto**
   - Proyecto Next.js, paleta de colores y tipografías (Playfair Display + Montserrat)
   - Extracción de los PDFs del proveedor (1.017 perfumes) → `data/catalogo-completo.json`
-  - Selección curada de 126 perfumes en tendencia, tope $350.000; árabes con envío $3.250 + 30% de margen → `src/data/products.json`
+  - Selección curada de 126 perfumes en tendencia, tope $350.000; precio = costo + envío $3.250 + margen (árabes 30%, diseñador y nicho 20%) → `src/data/products.json`
   - Navbar: buscador con sugerencias, logo, submenús (Árabes / Diseñador / Nicho), FAQ, carrito; menú móvil
   - Footer y rutas base
 - [x] **Etapa 2 — Home**: carrusel hero (2 diapositivas), banners Masculinas / Femeninas, franja de beneficios, botón de WhatsApp
