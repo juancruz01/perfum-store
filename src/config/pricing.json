@@ -4,13 +4,13 @@
   "redondeo": 1000,
   "costoEnvio": {
     "arabe": 3250,
-    "disenador": 0,
-    "nicho": 0
+    "disenador": 3250,
+    "nicho": 3250
   },
   "margen": {
     "arabe": 30,
-    "disenador": 0,
-    "nicho": 0
+    "disenador": 30,
+    "nicho": 30
   },
   "preciosManuales": {
     "armaf-odyssey-mandarin-eau-de-parfum-100ml": 70000,

@@ -94,7 +94,7 @@ const CONCENTRATIONS = [
 
 const GENDER_WORDS = /\b(FEMENINO|FEM|MASCULINO|MACULINO|MASC|UNISSEX|UNISEEX|UNISEX)\b/g;
 
-const LOWER_WORDS = new Set(["de", "del", "di", "da", "la", "le", "les", "el", "al", "by", "pour", "in", "of", "the", "for", "with", "et", "and", "y", "en"]);
+const LOWER_WORDS = new Set(["de", "del", "di", "da", "la", "le", "les", "el", "al", "by", "pour", "in", "of", "the", "for", "with", "et", "and", "y", "en", "to"]);
 const KEEP_UPPER = new Set(["EDP", "EDT", "XS", "VIP", "NYC", "CH", "CK", "II", "III", "XO", "USA", "L'OR", "ATP", "Y", "A*MEN", "I", "9PM", "9AM"]);
 
 function titleCase(str) {
