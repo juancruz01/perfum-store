@@ -5,13 +5,13 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ChevronDown, Menu, ShoppingBag, X } from "lucide-react";
 import { mainNav, site } from "@/config/site";
+import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/lib/format";
 import { Logo } from "./Logo";
 import { SearchBox } from "./SearchBox";
 
 function CartButton() {
-  // El contador se conecta al carrito en la etapa 5.
-  const count = 0;
+  const { count } = useCart();
   return (
     <Link
       href="/carrito"

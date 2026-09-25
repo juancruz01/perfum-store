@@ -1,5 +1,6 @@
 import { Benefits } from "@/components/home/Benefits";
 import { CategoryBanners } from "@/components/home/CategoryBanners";
+import { FeaturedProducts } from "@/components/home/FeaturedProducts";
 import { HeroCarousel, type HeroSlide } from "@/components/home/HeroCarousel";
 import hero1 from "../../public/images/hero-1.jpg";
 import hero2 from "../../public/images/hero-2.jpg";
@@ -50,6 +51,7 @@ export default function Home() {
           },
         ]}
       />
+      <FeaturedProducts />
     </>
   );
 }
