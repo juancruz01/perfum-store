@@ -56,9 +56,24 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <p className="container-page py-5 text-xs text-white/50">
-          © {year} {site.name}. Todos los derechos reservados.
-        </p>
+        <div className="container-page flex flex-col gap-3 py-5 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {year} {site.name}. Todos los derechos reservados.
+          </p>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            <Link href="/arrepentimiento" className="font-semibold text-white/80 underline hover:text-oro">
+              Botón de arrepentimiento
+            </Link>
+            <a
+              href="https://www.argentina.gob.ar/produccion/defensadelconsumidor/formulario"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-oro"
+            >
+              Defensa de las y los consumidores
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );

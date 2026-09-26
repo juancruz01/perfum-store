@@ -13,5 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...categories.map((c) => ({ url: url(c), priority: 0.8 })),
     ...products.map((p) => ({ url: url(`/perfume/${p.slug}`), priority: 0.6 })),
     { url: url("/preguntas-frecuentes"), priority: 0.4 },
+    { url: url("/arrepentimiento"), priority: 0.1 },
   ];
 }
