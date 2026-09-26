@@ -2,11 +2,16 @@ import pricing from "./pricing.json";
 
 export const site = {
   name: "Perfum.store",
+  /** Dirección pública de la web (se actualiza al publicar en Vercel). */
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://perfum-store.vercel.app",
   description:
     "Perfumes árabes, de diseñador y nicho 100% originales. Envíos a todo el país y envío gratis superando $150.000.",
   whatsapp: "5491159320255", // formato internacional sin + ni espacios (11 5932-0255)
   instagram: "perfum.storesur", // usuario sin @
   freeShippingFrom: pricing.envioGratisDesde,
+  /** Días aproximados que tarda en llegar un perfume por encargo. */
+  orderLeadDays: 10,
+  shippingCarriers: "Correo Argentino o Vía Cargo",
 };
 
 /** Formas de pago que se ofrecen en el pedido. */
@@ -21,7 +26,8 @@ export const deliveryOptions = [
   {
     id: "envio",
     label: "Envío a domicilio",
-    detail: "A todo el país. Gratis superando el mínimo; si no, el costo se coordina por WhatsApp.",
+    detail:
+      "A todo el país por Correo Argentino o Vía Cargo. Gratis superando el mínimo; si no, el costo se coordina por WhatsApp.",
   },
   { id: "retiro-claypole", label: "Retiro en Claypole", detail: "Sin cargo. Coordinamos día y horario." },
   {

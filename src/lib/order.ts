@@ -62,7 +62,8 @@ export function buildOrderMessage(orderNumber: string, items: CartItem[], form: 
 
   const lines = items.map((i) => {
     const details = [i.product.concentration, i.product.size].filter(Boolean).join(" ");
-    return `• ${i.qty} x ${productTitle(i.product)}${details ? ` (${details})` : ""} — ${formatPrice(i.qty * i.product.price)}`;
+    const stock = i.product.stock === "encargo" ? " [por encargo]" : " [en stock]";
+    return `• ${i.qty} x ${productTitle(i.product)}${details ? ` (${details})` : ""}${stock} — ${formatPrice(i.qty * i.product.price)}`;
   });
 
   const shippingText =

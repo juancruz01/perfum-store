@@ -16,6 +16,7 @@ import { Accordion } from "@/components/product/Accordion";
 import { ProductCard } from "@/components/product/ProductCard";
 import { ProductImage } from "@/components/product/ProductImage";
 import { PurchaseBox } from "@/components/product/PurchaseBox";
+import { StockBadge } from "@/components/product/StockBadge";
 import { site } from "@/config/site";
 import { FAMILY_LABELS, productInfo } from "@/data/product-info";
 import { GENDER_LABELS, TYPE_LABELS, TYPE_SLUGS, getProductBySlug, productTitle, products } from "@/lib/catalog";
@@ -35,9 +36,17 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const product = getProductBySlug((await params).slug);
   if (!product) return {};
   const info = productInfo[product.slug];
+  const title = productTitle(product);
+  const description = `${formatPrice(product.price)} · ${info?.d ?? `${title} original. ${site.description}`}`;
   return {
-    title: productTitle(product),
-    description: info?.d ?? `${productTitle(product)} original. ${site.description}`,
+    title,
+    description,
+    alternates: { canonical: `/perfume/${product.slug}` },
+    openGraph: {
+      title: `${title} | ${site.name}`,
+      description,
+      images: product.image ? [{ url: product.image, width: 800, height: 1000, alt: title }] : undefined,
+    },
   };
 }
 
@@ -75,8 +84,27 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
   const freeShipping = product.price >= site.freeShippingFrom;
   const details = [product.concentration, product.size].filter(Boolean).join(" · ");
 
+  // Datos estructurados de producto (precio y disponibilidad para buscadores)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: title,
+    brand: { "@type": "Brand", name: product.brand },
+    image: product.image ? `${site.url}${product.image}` : undefined,
+    description: info?.d,
+    offers: {
+      "@type": "Offer",
+      price: product.price,
+      priceCurrency: "ARS",
+      availability:
+        product.stock === "inmediato" ? "https://schema.org/InStock" : "https://schema.org/PreOrder",
+      url: `${site.url}/perfume/${product.slug}`,
+    },
+  };
+
   return (
     <div className="container-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="hidden md:block">
         <PageHeader
           crumbs={[
@@ -108,6 +136,8 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
           </p>
 
           <p className="mt-6 text-3xl font-semibold text-verde-oscuro">{formatPrice(product.price)}</p>
+
+          <StockBadge stock={product.stock} long className="mt-3 text-sm" />
 
           <ul className="mt-5 space-y-2 text-sm">
             <li className="flex items-center gap-2.5 rounded-full bg-crema px-4 py-2.5">

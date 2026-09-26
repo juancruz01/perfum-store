@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { CheckCircle2, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import { ProductImage } from "@/components/product/ProductImage";
+import { StockBadge } from "@/components/product/StockBadge";
 import { whatsappLink } from "@/lib/whatsapp";
 import { deliveryOptions, paymentMethods, site } from "@/config/site";
 import { useCart } from "@/lib/cart";
@@ -59,6 +60,7 @@ export function CartView() {
   };
 
   const shipping = shippingCost(subtotal, form.delivery);
+  const hasOrderItems = items.some((i) => i.product.stock === "encargo");
   const missingForFree = Math.max(0, site.freeShippingFrom - subtotal);
   const progress = Math.min(100, (subtotal / site.freeShippingFrom) * 100);
 
@@ -161,6 +163,7 @@ export function CartView() {
                       <p className="text-xs text-gris">
                         {[product.concentration, product.size].filter(Boolean).join(" · ")}
                       </p>
+                      <StockBadge stock={product.stock} className="mt-1" />
                     </div>
                     <button
                       type="button"
@@ -380,6 +383,13 @@ export function CartView() {
             </div>
             {shipping === null && <p className="text-xs text-gris">+ costo de envío, que te confirmamos por WhatsApp.</p>}
           </dl>
+
+          {hasOrderItems && (
+            <p className="mt-5 rounded-lg bg-oro/15 px-3 py-2.5 text-xs text-verde-oscuro">
+              Tu pedido incluye perfumes <strong>por encargo</strong>: llegan en aproximadamente {site.orderLeadDays}{" "}
+              días. Los que están en stock se pueden enviar antes.
+            </p>
+          )}
 
           <button
             type="submit"

@@ -38,6 +38,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Contorno visible al navegar con teclado */
+:focus-visible {
+  outline: 2px solid var(--oro);
+  outline-offset: 2px;
+}
+
 ::selection {
   background: var(--oro);
   color: var(--verde-oscuro);

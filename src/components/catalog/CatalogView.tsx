@@ -35,10 +35,14 @@ export function CatalogView({
 }) {
   const [sort, setSort] = useState<SortKey>("relevancia");
   const [brands, setBrands] = useState<Set<string>>(new Set());
+  const [onlyInStock, setOnlyInStock] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   // Si cambia la lista (otra categoría o búsqueda) se limpian los filtros de marca.
-  useEffect(() => setBrands(new Set()), [products]);
+  useEffect(() => {
+    setBrands(new Set());
+    setOnlyInStock(false);
+  }, [products]);
 
   useEffect(() => {
     document.body.style.overflow = drawerOpen ? "hidden" : "";
@@ -54,9 +58,14 @@ export function CatalogView({
   }, [products]);
 
   const visible = useMemo(() => {
-    const list = brands.size ? products.filter((p) => brands.has(p.brand)) : products;
+    const list = products.filter(
+      (p) => (!brands.size || brands.has(p.brand)) && (!onlyInStock || p.stock === "inmediato"),
+    );
     return [...list].sort(SORTS[sort].fn);
-  }, [products, brands, sort]);
+  }, [products, brands, onlyInStock, sort]);
+
+  const inStockCount = products.filter((p) => p.stock === "inmediato").length;
+  const activeFilters = brands.size + (onlyInStock ? 1 : 0);
 
   const toggleBrand = (brand: string) =>
     setBrands((prev) => {
@@ -89,6 +98,20 @@ export function CatalogView({
           </ul>
         </div>
       )}
+
+      <div>
+        <h2 className="font-serif text-lg text-verde-oscuro">Disponibilidad</h2>
+        <label className="mt-3 flex cursor-pointer items-center gap-2.5 py-1 text-sm text-tinta/80 hover:text-tinta">
+          <input
+            type="checkbox"
+            checked={onlyInStock}
+            onChange={(e) => setOnlyInStock(e.target.checked)}
+            className="h-4 w-4 accent-[var(--verde)]"
+          />
+          <span className="flex-1">Solo en stock (entrega inmediata)</span>
+          <span className="text-gris">{inStockCount}</span>
+        </label>
+      </div>
 
       <div>
         <div className="flex items-baseline justify-between">
@@ -133,9 +156,9 @@ export function CatalogView({
             className="flex items-center gap-2 border border-linea px-3.5 py-2 text-sm lg:hidden"
           >
             <SlidersHorizontal size={16} /> Filtrar
-            {brands.size > 0 && (
+            {activeFilters > 0 && (
               <span className="grid h-5 w-5 place-items-center rounded-full bg-verde text-[11px] text-white">
-                {brands.size}
+                {activeFilters}
               </span>
             )}
           </button>

@@ -15,7 +15,7 @@ Tienda / catálogo de perfumes con pedidos. Stack: **Next.js 15 + TypeScript + T
 - [x] **Etapa 4 — Ficha de producto**: imagen, precio, cantidad, "Agregar al carrito", consulta por WhatsApp, "Inspirado en…", desplegables (descripción, notas, para quién, uso, rendimiento, similares). Textos editables en `src/data/product-info.ts`
 - [x] **Etapa 5 — Carrito y pedidos**: carrito con cantidades y progreso de envío gratis, datos del cliente, envío a domicilio o retiro (Claypole / Solano), pago por transferencia, efectivo o Mercado Pago, pedido numerado enviado por WhatsApp
 - [x] **Etapa 6 — Imágenes**: fotos oficiales de los 128 perfumes (Fragrantica), normalizadas a WebP 800x1000 con fondo blanco y frasco centrado → `public/products/`
-- [ ] **Etapa 7 — FAQ, SEO y pulido**: preguntas frecuentes, metadatos, Open Graph, accesibilidad, responsive
+- [x] **Etapa 7 — FAQ, SEO y pulido**: disponibilidad por perfume (en stock / por encargo, leída del color de los PDFs) con filtro, FAQ (12 preguntas), vista previa para compartir (`public/og.jpg`), sitemap, robots, datos estructurados, página 404, accesibilidad
 - [ ] **Etapa 8 — Publicación**: deploy en Vercel, dominio, link para Instagram
 
 ## Cómo se arma el catálogo

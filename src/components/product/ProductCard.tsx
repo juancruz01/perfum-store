@@ -5,6 +5,7 @@ import { formatPrice } from "@/lib/format";
 import type { Product } from "@/lib/types";
 import { AddToCartButton } from "./AddToCartButton";
 import { ProductImage } from "./ProductImage";
+import { StockBadge } from "./StockBadge";
 
 export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
   const href = `/perfume/${product.slug}`;
@@ -33,6 +34,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-bordo">{product.brand}</p>
           <h3 className="mt-1 font-medium leading-snug text-tinta group-hover:text-verde">{product.name}</h3>
           {details && <p className="mt-0.5 text-xs text-gris">{details}</p>}
+          <StockBadge stock={product.stock} className="mt-1.5" />
         </Link>
         <p className="mt-2 text-lg font-semibold text-verde-oscuro">{formatPrice(product.price)}</p>
         <AddToCartButton slug={product.slug} className="mt-3 w-full py-2.5 text-[11px]" />

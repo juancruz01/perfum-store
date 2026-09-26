@@ -209,6 +209,8 @@ function add(item, brand, type, source) {
     isSet: parsed.isSet || brand === "Sets",
     priceUsd: item.usd,
     price: salePrice(slug, item.usd, type),
+    // Color de la celda en el PDF del proveedor: verde = stock inmediato, naranja = por encargo
+    stock: item.status === "stock" ? "inmediato" : "encargo",
     image: null,
     raw,
   });
@@ -251,6 +253,7 @@ console.log(`✔ Publicados: ${products.length} productos -> src/data/products.j
 console.log(`  árabes: ${count("type", "arabe")} | diseñador: ${count("type", "disenador")} | nicho: ${count("type", "nicho")}`);
 console.log(`  masculino: ${count("gender", "masculino")} | femenino: ${count("gender", "femenino")} | unisex: ${count("gender", "unisex")}`);
 const prices = products.map((p) => p.price);
+console.log(`  en stock: ${count("stock", "inmediato")} | por encargo: ${count("stock", "encargo")}`);
 console.log(`  precios: ${ars(Math.min(...prices))} a ${ars(Math.max(...prices))}`);
 if (problems.length) console.log("\n⚠ " + problems.join("\n⚠ "));
 if (process.argv.includes("--report")) {
