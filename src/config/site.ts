@@ -2,8 +2,8 @@ import pricing from "./pricing.json";
 
 export const site = {
   name: "Perfum.store",
-  /** Dirección pública de la web (se actualiza al publicar en Vercel). */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://perfum-store.vercel.app",
+  /** Dirección pública de la web (se actualiza al publicar en Netlify). */
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://perfum-store.netlify.app",
   description:
     "Perfumes árabes, de diseñador y nicho 100% originales. Envíos a todo el país y envío gratis superando $150.000.",
   whatsapp: "5491159320255", // formato internacional sin + ni espacios (11 5932-0255)

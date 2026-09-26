@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return {
     title,
     description,
-    alternates: { canonical: `/perfume/${product.slug}` },
+    alternates: { canonical: `/perfume/${product.slug}/` },
     openGraph: {
       title: `${title} | ${site.name}`,
       description,
@@ -98,7 +98,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
       priceCurrency: "ARS",
       availability:
         product.stock === "inmediato" ? "https://schema.org/InStock" : "https://schema.org/PreOrder",
-      url: `${site.url}/perfume/${product.slug}`,
+      url: `${site.url}/perfume/${product.slug}/`,
     },
   };
 
